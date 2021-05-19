@@ -107,16 +107,7 @@
 
             <?php
                 
-                $servername = "localhost:3307";
-                $username = "username";
-                $password = "password";
-                $dbname = "ass2";
-                // Create connection
-                $conn = mysqli_connect($servername, $username, $password, $dbname);
-                // Check connection
-                if (!$conn) {
-                    die("Connection failed: " . mysqli_connect_error());
-                }
+                include 'connect.php';
                 $option = (isset($_GET["option"]))?$_GET["option"]:"default";
                 if(isset($_GET["page"])){
                     $page=$_GET["page"];

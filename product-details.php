@@ -23,19 +23,11 @@
         
         <div class="row">
                 <?php
-                $servername = "localhost:3307";
-                $username = "username";
-                $password = "password";
-                $dbname = "ass2";
+
                 if(isset($_GET["id"])){
                     $id = $_GET["id"];
                 }
-                // Create connection
-                $conn = mysqli_connect($servername, $username, $password, $dbname);
-                // Check connection
-                if (!$conn) {
-                    die("Connection failed: " . mysqli_connect_error());
-                }
+                include 'connect.php';
 
                 $sql = mysqli_query($conn,"SELECT id,name,quantity,price,description,size FROM products WHERE products.id = $id");
                 $sql_img = "SELECT id_img,product_id,filename FROM products_images";
@@ -226,21 +218,7 @@
         </div>
     </div>
 
-    <!-- js for toggle menu -->
-    <script>
-        var MenuItems =document.getElementById("MenuItems");
-        MenuItems.style.maxHeight = "0px"
-        
-        function menutoggle(){
-            if(MenuItems.style.maxHeight=="0px"){
-                MenuItems.style.maxHeight="200px"
-            }
-            else{
-                MenuItems.style.maxHeight="0px"
-            }
-        }
-
-    </script>
+  
 
     <!-- js for product gallery -->
     <script>

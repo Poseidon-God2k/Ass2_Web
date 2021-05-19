@@ -7,9 +7,9 @@
 ?>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-  $servername = "localhost:3307";
-  $username = "username";
-  $password = "password";
+  $servername = "localhost:3306";
+  $username = "root";
+  $password = "";
   $dbname = "ass2";
   // Create connection
   $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -75,17 +75,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             </tr>
             
             <?php
-                $servername = "localhost:3307";
-                $username = "username";
-                $password = "password";
-                $dbname = "ass2";
+                include 'connect.php';
                 $id = 1;
-                // Create connection
-                $conn = mysqli_connect($servername, $username, $password, $dbname);
-                // Check connection
-                if (!$conn) {
-                    die("Connection failed: " . mysqli_connect_error());
-                }
+                
                 $userid = $_SESSION["Id"];
                 $sql_cart = "SELECT * FROM carts";
                 $result_cart = mysqli_query($conn,$sql_cart);
